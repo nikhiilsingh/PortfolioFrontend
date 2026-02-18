@@ -141,6 +141,17 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -180,9 +191,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-900 bg-hero-gradient">
+    <div className="min-h-screen bg-[#0F172A]">
       {/* Nav */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-lg border-b border-white/5">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#0F172A]/95 backdrop-blur-md shadow-lg shadow-black/20 py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
         <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="#" className="text-lg font-semibold text-white">
             Nikhil Singh
@@ -215,12 +232,28 @@ function App() {
 
       <main>
         {/* Hero */}
+
         <section
           id="hero"
-          className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 max-w-6xl mx-auto"
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-          <div className="animate-on-scroll">
-            <p className="text-accent-blue font-medium mb-2">Hi, I'm</p>
+          <div className="absolute inset-0 z-8">
+            <img
+              src="/PortBG.png"
+              alt="Developer workspace"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-linear-to-b from-[#0F172A]/90 via-[#0F172A]/80 to-[#0F172A]" />
+          </div>
+
+          {/* Animated gradient orbs */}
+          <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-500/15 rounded-full blur-3x1 animate-pulse delay-1000" />
+
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+          <div className="relative z-10 animate-on-scroll">
+            {/* <p className="text-accent-blue font-medium mb-2">Hi, I'm</p> */}
+            <p className="text-accent-blue font-semibold text-lg mb-4 tracking-widest uppercase">Hello, I'm</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">
               Nikhil Singh
             </h1>
@@ -234,7 +267,7 @@ function App() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-90 transition"
+                className="px-6 py-3 rounded-xl bg-linear-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-90 transition"
               >
                 View Projects
               </a>
@@ -458,7 +491,7 @@ function App() {
               <button
                 type="submit"
                 disabled={contactLoading}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-90 disabled:opacity-50 transition"
+                className="w-full py-3 rounded-xl bg-linear-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-90 disabled:opacity-50 transition"
               >
                 {contactLoading ? "Sending..." : "Send Message"}
               </button>

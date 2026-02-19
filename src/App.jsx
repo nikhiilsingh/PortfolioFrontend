@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import About from "./components/About.jsx";
+import Skills from "./components/Skills.jsx";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -12,40 +13,6 @@ const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
-];
-
-const skillCategories = [
-  {
-    title: "Languages",
-    items: ["JavaScript (ES6+)", "TypeScript", "Python"],
-    icon: "⌨️",
-  },
-  {
-    title: "Frontend",
-    items: [
-      "React.js",
-      "Redux Toolkit",
-      "Tailwind CSS",
-      "REST API Integration",
-      "Responsive Design",
-    ],
-    icon: "⚛️",
-  },
-  {
-    title: "Backend",
-    items: ["Node.js", "Express.js", "MongoDB", "JWT Authentication"],
-    icon: "🔧",
-  },
-  {
-    title: "Tools",
-    items: ["Git", "GitHub", "Postman", "Razorpay", "Cloudinary", "Vercel"],
-    icon: "🛠️",
-  },
-  {
-    title: "Core CS",
-    items: ["Data Structures & Algorithms", "OOP", "Modular Architecture"],
-    icon: "📐",
-  },
 ];
 
 const experiences = [
@@ -297,34 +264,7 @@ function App() {
         <About />
 
         {/* Skills */}
-        <section id="skills" className="py-20 px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-10 animate-on-scroll">
-            Skills
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((cat, i) => (
-              <div
-                key={cat.title}
-                className="glass-card p-6 animate-on-scroll"
-                style={{ transitionDelay: `${i * 50}ms` }}
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-2xl">{cat.icon}</span>
-                  <h3 className="text-lg font-semibold text-white">
-                    {cat.title}
-                  </h3>
-                </div>
-                <ul className="space-y-2">
-                  {cat.items.map((item) => (
-                    <li key={item} className="text-gray-400 text-sm">
-                      • {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Skills />
 
         {/* Experience */}
         <section id="experience" className="py-20 px-6 max-w-6xl mx-auto">

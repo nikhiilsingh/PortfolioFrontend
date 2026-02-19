@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import About from "./components/About.jsx";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -232,7 +233,6 @@ function App() {
 
       <main>
         {/* Hero */}
-
         <section
           id="hero"
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -250,10 +250,13 @@ function App() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-500/15 rounded-full blur-3x1 animate-pulse delay-1000" />
 
+          {/* Content */}
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-          <div className="relative z-10 animate-on-scroll">
-            {/* <p className="text-accent-blue font-medium mb-2">Hi, I'm</p> */}
-            <p className="text-accent-blue font-semibold text-lg mb-4 tracking-widest uppercase">Hello, I'm</p>
+          {/* <div className="relative z-10 animate-on-scroll"> */}
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-4 animate-on-scroll">
+            <p className="text-accent-blue font-semibold text-lg mb-4 tracking-widest uppercase">
+              Hello, I'm
+            </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">
               Nikhil Singh
             </h1>
@@ -261,26 +264,28 @@ function App() {
               Frontend-Focused Full Stack Developer
             </p>
             <p className="text-gray-400 max-w-xl mb-8">
-              I build scalable, production-ready web applications using React,
-              Node.js, and MongoDB.
+              I design and develop scalable web applications that combine clean
+              code, performance, and great user experience. From responsive
+              frontend interfaces to robust backend systems, I build solutions
+              that are reliable, maintainable, and ready for real-world use.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-xl bg-linear-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-90 transition"
+                className="px-6 py-3 rounded-xl bg-linear-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-80 transition"
               >
                 View Projects
               </a>
               <a
                 href={RESUME_URL}
                 download
-                className="px-6 py-3 rounded-xl glass-card border border-white/10 text-white font-medium hover:border-accent-blue/50 transition"
+                className="px-6 py-3 rounded-xl glass-card border border-white/10 text-white font-medium hover:border-accent-blue/70 transition"
               >
                 Download Resume
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-xl border border-white/20 text-gray-300 font-medium hover:border-accent-purple/50 hover:text-white transition"
+                className="px-6 py-3 rounded-xl bg-linear-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-80 transition"
               >
                 Contact Me
               </a>
@@ -289,24 +294,7 @@ function App() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-20 px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-6 animate-on-scroll">
-            About Me
-          </h2>
-          <div className="glass-card p-8 animate-on-scroll">
-            <p className="text-gray-300 leading-relaxed">
-              I'm a frontend-focused full stack developer with production
-              experience building web applications from idea to deployment. I
-              specialize in{" "}
-              <strong className="text-white">React & Redux</strong>, with a
-              strong emphasis on modular architecture, clean APIs, and
-              maintainable code. I've integrated REST APIs, payment gateways
-              (Razorpay), and auth flows in real projects. My goal is to join a
-              high-growth tech company as a Software Development Engineer and
-              ship impact at scale.
-            </p>
-          </div>
-        </section>
+        <About />
 
         {/* Skills */}
         <section id="skills" className="py-20 px-6 max-w-6xl mx-auto">

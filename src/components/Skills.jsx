@@ -62,7 +62,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 px-6 max-w-6xl mx-auto">
+    <section id="skills" className="py-20 px-6 max-w-6xl mx-auto ">
       <div className="text-center mb-16">
         <p className="text-indigo-400 font-semibold tracking-widest uppercase text-sm mb-3">
           What I Know

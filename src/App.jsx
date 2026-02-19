@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
+import Experience from "./components/Experience.jsx";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
-const RESUME_URL = "/Nikhil_Singh_Full_Stack_Resume.pdf";
+const RESUME_URL = "/Nikhil_Singh_Resume.pdf";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -267,33 +268,7 @@ function App() {
         <Skills />
 
         {/* Experience */}
-        <section id="experience" className="py-20 px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-10 animate-on-scroll">
-            Experience
-          </h2>
-          <div className="space-y-8">
-            {experiences.map((exp, i) => (
-              <div key={exp.role} className="glass-card p-8 animate-on-scroll">
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                  <h3 className="text-xl font-semibold text-white">
-                    {exp.role}
-                  </h3>
-                  <span className="text-accent-blue text-sm font-medium">
-                    {exp.period}
-                  </span>
-                </div>
-                <ul className="space-y-2 text-gray-400">
-                  {exp.points.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <span className="text-accent-purple shrink-0">→</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Experience />
 
         {/* Projects */}
         <section id="projects" className="py-20 px-6 max-w-6xl mx-auto">

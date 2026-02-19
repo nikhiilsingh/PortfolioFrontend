@@ -29,7 +29,7 @@ const highlights = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 px-6 bg-[#0F172A]">
+    <section id="about" className="py-24 px-6  bg-[#1E293B]/50">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

@@ -1,10 +1,5 @@
 import { GraduationCap, Briefcase, Award, Calendar } from "lucide-react";
 
-const CETPA_IMAGE =
-  "https://mgx-backend-cdn.metadl.com/generate/images/406772/2026-02-15/847a993d-8330-45a2-bae3-6faa5a39f62a.png";
-// const FREELANCE_IMAGE =
-//   "https://mgx-backend-cdn.metadl.com/generate/images/406772/2026-02-15/815c58fc-e64f-4e7b-902f-a0341d6f0e09.png";
-
 const timeline = [
   {
     period: "2025 - Present",
@@ -13,10 +8,9 @@ const timeline = [
     description:
       "Transitioned into freelancing, working with diverse clients to deliver custom web solutions, from landing pages to full web applications.",
     achievements: [
-      "Delivered 10+ projects for clients across industries",
       "Built responsive websites and web applications",
       "Managed client communication and project timelines",
-      "Maintained 5-star ratings on freelance platforms",
+      "Focused on creating smooth and user-friendly experiences",
     ],
     icon: Briefcase,
     image: "/images/freelance.jpeg",

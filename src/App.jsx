@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
+import Projects from "./components/Projects.jsx";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -14,30 +15,6 @@ const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
-];
-
-const experiences = [
-  {
-    role: "Freelance Frontend Developer",
-    period: "Sep 2024 – Present",
-    points: [
-      "Built and shipped production-grade React applications",
-      "Created modular component architecture",
-      "Integrated Razorpay payment system",
-      "Coordinated 15+ REST APIs",
-      "Built responsive UI with Tailwind",
-      "Used Git branching workflows",
-    ],
-  },
-  {
-    role: "MERN Stack Trainee – CETPA Infotech",
-    period: "Aug 2024 – Mar 2025",
-    points: [
-      "Built full MERN stack apps",
-      "Implemented JWT authentication",
-      "Refactored components for modularity",
-    ],
-  },
 ];
 
 const projects = [
@@ -271,40 +248,7 @@ function App() {
         <Experience />
 
         {/* Projects */}
-        <section id="projects" className="py-20 px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-10 animate-on-scroll">
-            Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((proj) => (
-              <div
-                key={proj.name}
-                className="glass-card p-6 flex flex-col animate-on-scroll"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-semibold text-white">
-                    {proj.name}
-                  </h3>
-                  <span className="text-xs px-2 py-1 rounded-full bg-accent-purple/20 text-accent-violet">
-                    {proj.tag}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-500 mb-2">{proj.tech}</p>
-                <p className="text-gray-400 text-sm flex-1 mb-4">
-                  {proj.description}
-                </p>
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent-blue text-sm font-medium hover:underline"
-                >
-                  View on GitHub →
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Projects />
 
         {/* Education */}
         <section id="education" className="py-20 px-6 max-w-6xl mx-auto">

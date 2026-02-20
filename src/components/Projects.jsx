@@ -81,7 +81,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-24 px-6 bg-[#1E293B]/50">
+    <section id="projects" className="py-24 px-6 ">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -93,8 +93,8 @@ export default function ProjectsSection() {
           </h2>
           <div className="w-20 h-1 bg-linear-to-r from-indigo-500 to-violet-500 mx-auto rounded-full" />
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            Here are some of the projects I’ve worked on. I focused on building
-            them with clean design, good performance, and attention to detail.
+            Here are some of the projects I’ve built, combining clean design,
+            optimized performance, and thoughtful attention to detail.
           </p>
         </div>
 

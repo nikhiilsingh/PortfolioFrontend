@@ -4,6 +4,7 @@ import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
+import Education from "./components/Eucation.jsx";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -79,44 +80,6 @@ function App() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-    if (!name || !email || !message) {
-      setContactStatus({ type: "error", text: "Please fill all fields." });
-      return;
-    }
-    setContactStatus(null);
-    setContactLoading(true);
-    try {
-      const res = await fetch(`${API_BASE}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.success) {
-        setContactStatus({
-          type: "success",
-          text: "Message sent. I'll get back soon!",
-        });
-        form.reset();
-      } else {
-        setContactStatus({
-          type: "error",
-          text: data.error || "Something went wrong.",
-        });
-      }
-    } catch {
-      setContactStatus({ type: "error", text: "Network error. Try again." });
-    } finally {
-      setContactLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0F172A]">
@@ -219,119 +182,16 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* About */}
         <About />
-
-        {/* Skills */}
         <Skills />
-
-        {/* Experience */}
         <Experience />
-
-        {/* Projects */}
         <Projects />
-
-        {/* Education */}
-        <section id="education" className="py-20 px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-6 animate-on-scroll">
-            Education
-          </h2>
-          <div className="glass-card p-8 animate-on-scroll">
-            <h3 className="text-xl font-semibold text-white">
-              B.Tech in Computer Science
-            </h3>
-            <p className="text-gray-400 mt-1">
-              Chitkara University (2020 – 2024)
-            </p>
-            <p className="text-accent-blue font-medium mt-2">CGPA: 8.77 / 10</p>
-          </div>
-        </section>
-
-        {/* Contact */}
-        {/* <section id="contact" className="py-20 px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-6 animate-on-scroll">
-            Contact
-          </h2>
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="animate-on-scroll">
-              <p className="text-gray-400 mb-4">Delhi, India</p>
-              <a
-                href="mailto:nikhilrajput4265@gmail.com"
-                className="block text-accent-blue hover:underline mb-2"
-              >
-                nikhilrajput4265@gmail.com
-              </a>
-              <div className="flex gap-4 mt-4">
-                <a
-                  href="https://www.linkedin.com/in/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-accent-blue transition"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-accent-blue transition"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-            <form
-              onSubmit={handleContactSubmit}
-              className="glass-card p-6 animate-on-scroll space-y-4"
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-dark-800 border border-white/10 text-white placeholder-gray-500 focus:border-accent-blue outline-none transition"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-dark-800 border border-white/10 text-white placeholder-gray-500 focus:border-accent-blue outline-none transition"
-              />
-              <textarea
-                name="message"
-                rows="4"
-                placeholder="Message"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-dark-800 border border-white/10 text-white placeholder-gray-500 focus:border-accent-blue outline-none transition resize-none"
-              />
-              {contactStatus && (
-                <p
-                  className={
-                    contactStatus.type === "success"
-                      ? "text-green-400 text-sm"
-                      : "text-red-400 text-sm"
-                  }
-                >
-                  {contactStatus.text}
-                </p>
-              )}
-              <button
-                type="submit"
-                disabled={contactLoading}
-                className="w-full py-3 rounded-xl bg-linear-to-r from-accent-blue to-accent-purple text-white font-medium hover:opacity-90 disabled:opacity-50 transition"
-              >
-                {contactLoading ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          </div>
-        </section> */}
+        <Education />
         <Contact />
       </main>
 
       <footer className="py-8 px-6 border-t border-white/5 text-center text-gray-500 text-sm">
-        © 2026 Nikhil Singh
+        © 2026 Nikhil Singh. All rights reserved.
       </footer>
     </div>
   );

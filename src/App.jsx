@@ -3,6 +3,7 @@ import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
 import Projects from "./components/Projects.jsx";
+import Contact from "./components/Contact.jsx";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -15,25 +16,6 @@ const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
-];
-
-const projects = [
-  {
-    name: "Note Master",
-    tag: "Full Stack",
-    tech: "React, Node, Express, MongoDB, JWT",
-    description:
-      "Secure full-stack note management app with protected routes and CRUD operations.",
-    github: "https://github.com",
-  },
-  {
-    name: "Budget Tracker App",
-    tag: "Frontend",
-    tech: "React, Chart.js",
-    description:
-      "Real-time expense tracking with data visualization and reusable components.",
-    github: "https://github.com",
-  },
 ];
 
 function useScrollAnimation() {
@@ -267,7 +249,7 @@ function App() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-20 px-6 max-w-6xl mx-auto">
+        {/* <section id="contact" className="py-20 px-6 max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-6 animate-on-scroll">
             Contact
           </h2>
@@ -344,7 +326,8 @@ function App() {
               </button>
             </form>
           </div>
-        </section>
+        </section> */}
+        <Contact />
       </main>
 
       <footer className="py-8 px-6 border-t border-white/5 text-center text-gray-500 text-sm">
